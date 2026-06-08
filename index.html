@@ -49,6 +49,7 @@
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
     .section-label.green { color: #00aa66; }
     .section-label.blue { color: #0066cc; }
+    .section-label.gold { color: #cc8800; }
     .section-title { font-size: 32px; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 16px; color: #0d0d0d; }
     .section-sub { font-size: 16px; color: #666; max-width: 520px; margin-bottom: 48px; }
 
@@ -59,9 +60,11 @@
     }
     .project-card.infra { border-top: 3px solid #00aa66; }
     .project-card.arch { border-top: 3px solid #0066cc; }
+    .project-card.vault { border-top: 3px solid #cc8800; }
     .project-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 99px; letter-spacing: 0.5px; }
     .project-tag.green { background: #f0faf5; color: #00885a; }
     .project-tag.blue { background: #f0f6ff; color: #0055bb; }
+    .project-tag.gold { background: #fff8e6; color: #996600; }
     .project-card h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
     .project-card p { font-size: 15px; color: #555; line-height: 1.6; }
     .project-card .btn-download { display: inline-block; padding: 10px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; }
@@ -69,6 +72,8 @@
     .btn-download.green:hover { background: #008855; }
     .btn-download.blue { background: #0066cc; color: #fff; }
     .btn-download.blue:hover { background: #0055aa; }
+    .btn-download.gold { background: #cc8800; color: #fff; }
+    .btn-download.gold:hover { background: #aa7000; }
 
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .feature-card { background: #fafafa; border: 1px solid #ebebeb; border-radius: 12px; padding: 24px; }
@@ -117,6 +122,7 @@
     <a href="#projects">Projects</a>
     <a href="#infrastructure">Infrastructure</a>
     <a href="#architecture">Architecture</a>
+    <a href="#vault">Vault</a>
     <a href="#formats">Formats</a>
   </div>
 </nav>
@@ -177,6 +183,17 @@
             <button class="btn-download blue">⬇ Download architecture.zip</button>
           </a>
           <a href="#architecture"><button class="btn-secondary" style="padding:10px 18px; font-size:13px;">Learn more</button></a>
+        </div>
+      </div>
+      <div class="project-card vault">
+        <div><span class="project-tag gold">v1.0.0</span></div>
+        <h2>Vault</h2>
+        <p>A file encryption tool using a unique master key division algorithm. Encrypts any file into the open <code>.vlt</code> format — decryptable only with the original master key.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="https://github.com/LemmingPranks/brickwork.online/raw/main/vault.zip" download>
+            <button class="btn-download gold">⬇ Download vault.zip</button>
+          </a>
+          <a href="#vault"><button class="btn-secondary" style="padding:10px 18px; font-size:13px;">Learn more</button></a>
         </div>
       </div>
     </div>
@@ -279,12 +296,56 @@
 
 <hr class="divider" />
 
-<!-- FORMATS -->
+<!-- VAULT -->
+<section id="vault">
+  <div class="section-inner">
+    <div class="section-label gold">Vault</div>
+    <h2 class="section-title">File encryption, your way</h2>
+    <p class="section-sub">Vault encrypts any file using a unique master key division algorithm. Each byte is split into a quotient and remainder using your key — unreadable without it.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fff8e6">🔒</div>
+        <h3>Master key encryption</h3>
+        <p>Your master key's character values determine the divisor. Every file encrypted with a different key produces a completely different result.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fff8e6">🔓</div>
+        <h3>Exact decryption</h3>
+        <p>Quotients and remainders are stored separately in the <code>.vlt</code> file — the original byte is reconstructed perfectly on decryption.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fff8e6">🔍</div>
+        <h3>Inspect safely</h3>
+        <p>View the header of any <code>.vlt</code> file — source name, creation date, byte count — without needing the master key.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fff8e6">🖥️</div>
+        <h3>Vault Wizard</h3>
+        <p>A desktop Electron GUI with encrypt, decrypt, and inspect panels. Master key fields are password-masked for safety.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px; margin-bottom:20px; font-size:18px; font-weight:600;">Dependencies</h3>
+    <div class="dep-grid">
+      <div class="dep-card"><div class="dep-name">commander</div><div class="dep-version">^13.1.0</div><div class="dep-desc">CLI argument and command parsing.</div></div>
+      <div class="dep-card"><div class="dep-name">chalk</div><div class="dep-version">^4.1.2</div><div class="dep-desc">Coloured terminal output.</div></div>
+      <div class="dep-card"><div class="dep-name">fs-extra</div><div class="dep-version">^11.3.5</div><div class="dep-desc">Enhanced file system operations.</div></div>
+      <div class="dep-card"><div class="dep-name">electron</div><div class="dep-version">^36.3.1</div><div class="dep-desc">Desktop GUI framework. (Dev dependency.)</div></div>
+    </div>
+
+    <h3 style="margin-top:48px; margin-bottom:20px; font-size:18px; font-weight:600;">Get started</h3>
+    <div class="install-box"><span style="color:#ffaa00">npm install</span></div>
+    <div class="install-box"><span style="color:#ffaa00">node vault.js encrypt secret.txt -k "mykey" -o secret.vlt</span></div>
+    <div class="install-box"><span style="color:#ffaa00">node vault.js decrypt secret.vlt -k "mykey" -o restored.txt</span></div>
+  </div>
+</section>
+
+<hr class="divider" />
 <section id="formats">
   <div class="section-inner">
     <div class="section-label green">File Formats</div>
     <h2 class="section-title">Three open formats</h2>
-    <p class="section-sub">bytesizedprojects tools introduce three custom file formats, all open and human-readable.</p>
+    <p class="section-sub">bytesizedprojects tools introduce four custom file formats, all open and human-readable.</p>
     <div class="formats-grid">
       <div class="format-card">
         <div class="format-tag">.idf</div>
@@ -300,6 +361,11 @@
         <div class="format-tag blue">.arf</div>
         <h3>Architecture File</h3>
         <p>A semantically compressed code file. Stores labelled chunks — functions, classes, variables — instead of raw source text.</p>
+      </div>
+      <div class="format-card">
+        <div class="format-tag" style="color:#ffaa00">.vlt</div>
+        <h3>Vault File</h3>
+        <p>An encrypted file format. Each byte of the original file is stored as a quotient and remainder derived from the master key — unreadable without it.</p>
       </div>
     </div>
   </div>
